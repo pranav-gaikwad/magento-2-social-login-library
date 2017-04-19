@@ -75,9 +75,10 @@ class OAuth2Client
       "redirect_uri"  => $this->redirect_uri,
       "code"          => $code
     );
-
+\Zend_Debug::dump($params);
     $response = $this->request( $this->token_url, $params, $this->curl_authenticate_method );
-
+\Zend_Debug::dump($response);
+die;
     $response = $this->parseRequestResult( $response );
 
     if( ! $response || ! isset( $response->access_token ) ){
